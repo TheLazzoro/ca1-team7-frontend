@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CA1 Team 7 - Lasse Dam</title>
+	<link href="./src/scripts/style.css" rel="stylesheet">
+</head>
+
+<body>
+	<h1>CA1 Team 7</h1>
+
+	<div class="tab">
+		<button type="button" class="tablinks" id="tabPerson">People</button>
+		<button type="button" class="tablinks" id="tabHobby">Hobbies</button>
+		<button type="button" class="tablinks" id="tabZipcode">Zipcodes</button>
+	</div>
+
+	<div id="person" class="tabcontent">
+		<h3>Create person</h3>
+		<button type="button" id="btnCreatePerson">Create Person</button>
+		<h3>Search for people</h3>psst... use person id's:
+		<input type="text" id="textBoxSearchPerson">
+		<button type="button" id="btnSearchPerson">Search</button>
+		<p>
+		<table id="tablePerson" display="none">
+			<thead>
+				<tr>
+					<th>First name</th>
+					<th>Last name</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody id="tableBodyPerson"></tbody>
+		</table>
+		</p>
+	</div>
+
+	<div id="hobby" class="tabcontent">
+		<h3>Create hobby</h3>
+		<button type="button" id="btnCreateHobby">Create Hobby</button>
+		<h3>Search for hobbies</h3>
+		<input type="text" id="textBoxSearchHobby">
+		<button type="button" id="btnSearchHobby">Search</button>
+		<p>
+		<table id="tableHobby" display="none">
+			<thead>
+				<tr>
+					<th>Hobby name</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody id="tableBodyHobby"></tbody>
+		</table>
+		</p>
+	</div>
+
+	<div id="zipcodes" class="tabcontent">
+		<h3>Search for Cities</h3>
+		<input type="text" id="textBoxSearchCityInfo">
+		<button type="button" id="btnSearchCityInfo">Search</button>
+		<table id="tableCityInfo" display="none">
+			<thead>
+				<tr>
+					<th>City Name</th>
+					<th>Zipcode</th>
+				</tr>
+			</thead>
+			<tbody id="tableBodyCityInfo"></tbody>
+		</table>
+	</div>
+
+	<!-- Create person dialog -->
+	<dialog id="createPersonDialog">
+		<form method="dialog">
+			<p><label>Create Person:
+					<p>First Name:</p>
+					<input id="textBoxFirstName">
+					<p>Last Name:</p>
+					<input id="textBoxLastName">
+					<p>Email:</p>
+					<input id="textBoxEmail">
+					<p>Phone:</p>
+					<input id="textBoxPhone">
+					<p>Street:</p>
+					<input id="textBoxAddress">
+					Number:
+					<input id="textBoxAddressNumber">
+					<p>Postal Code:</p>
+					<select id="createPersonPostalCode">
+					</select>
+					<p id="txtDialogHobbyMsg"></p>
+				</label></p>
+			<menu>
+				<button value="cancel">Cancel</button>
+				<button id="confirmBtn" value="default">Confirm</button>
+			</menu>
+		</form>
+	</dialog>
+
+	<!-- View Person dialog -->
+	<dialog id="viewPersonDialog">
+		<form method="dialog">
+			<p>
+			<p id="viewName">Name:</p>
+			<p id="viewEmail">Email:</p>
+			<p id="viewPhone">Phone:</p>
+			<table id="tablePersonDetails">
+				<thead>
+					<tr>
+						<th>Hobbies</th>
+					</tr>
+				</thead>
+				<tbody id="tablePersonHobbies"></tbody>
+			</table>
+			</p>
+			<menu>
+				<button id="confirmBtn" value="default">Close</button>
+			</menu>
+		</form>
+	</dialog>
+
+
+	<!-- Create hobby dialog -->
+	<dialog id="createHobbyDialog">
+		<form method="dialog">
+			<p><label>Create Hobby:
+					<p>Name:</p>
+					<input id="textBoxHobbyName">
+					<p>Wikipedia link:</p>
+					<input id="textBoxHobbyWikiLink">
+					<p>Category:</p>
+					<input id="textBoxHobbyCategory">
+					<p>Type:</p>
+					<input id="textBoxHobbyType">
+					<p id="txtDialogHobbyMsg"></p>
+				</label></p>
+			<menu>
+				<button value="cancel">Cancel</button>
+				<button id="confirmBtn" value="default">Confirm</button>
+			</menu>
+		</form>
+	</dialog>
+
+	<script type="module" src="./src/scripts/index.js"></script>
+</body>
+
+</html>
