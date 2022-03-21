@@ -30,7 +30,7 @@ export function initPerson() {
     btnCreatePerson.addEventListener('click', function onOpen() {
         if (typeof dialog.showModal === "function") {
             dialog.showModal();
-            loadCityInfoIntoCreateForm();
+            loadPersonCreateForm();
         } else {
             alert("The <dialog> API is not supported by this browser");
         }
@@ -95,6 +95,7 @@ const listSinglePerson = async (id) => {
 function generateHtmlPerson(person) {
     const tableRow = `
         <tr id=tableRowPerson${person.id}>
+            <td>${person.id}</td>
             <td>${person.firstName}</td>
             <td>${person.lastName}</td>
             <td>
@@ -185,7 +186,23 @@ function generatePersonEvents(person) {
     })
 }
 
-const loadCityInfoIntoCreateForm = async () => {
+const loadPersonCreateForm = async () => {
+    const firstName = document.getElementById("textBoxFirstName");
+    const lastName = document.getElementById("textBoxLastName");
+    const email = document.getElementById("textBoxEmail");
+    const phone = document.getElementById("textBoxPhone");
+    const street = document.getElementById("textBoxAddress");
+    const addressNumber = document.getElementById("textBoxAddressNumber");
+    const zipCode = document.getElementById("createPersonPostalCode");
+
+    firstName.value = "";
+    lastName.value = "";
+    email.value = "";
+    phone.value = "";
+    street.value = "";
+    addressNumber.value = "";
+    zipCode.value = "";
+
     document.querySelector('#createPersonPostalCode').innerHTML = "";
      await cityInfoFacade.getCityInfos()
         .then(data => {
